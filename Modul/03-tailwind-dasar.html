@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Tailwind Dasar</title>
+    
+    <!-- INI ADALAH CDN TAILWIND (Jembatan yang membawa fitur Tailwind ke file ini) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<!-- 
+    KONSEP TAILWIND:
+    Kita TIDAK PERLU menulis file CSS (.css) secara terpisah lagi.
+    Kita tinggal memanggil nama-nama class bawaan (Utility Class) langsung di dalam HTML.
+-->
+<body class="bg-gray-100 font-sans p-10">
+
+    <!-- 
+        Menganalisis kode class di bawah ini:
+        - text-3xl : Ukuran font H1 besar.
+        - font-bold : Teks ditebalkan.
+        - text-blue-600 : Teks warna biru (intensitas 600).
+        - text-center : Teks rata tengah.
+        - mb-8 : Margin Bottom (Jarak ke bawah) sebesar ukuran 8.
+    -->
+    <h1 class="text-3xl font-bold text-blue-600 text-center mb-8">
+        Selamat Datang di Dunia Tailwind CSS!
+    </h1>
+
+    <!-- 
+        Menganalisis kode Kotak Card:
+        - max-w-md : Lebar maksimal kotak medium.
+        - mx-auto : Margin kiri kanan otomatis (Membuat kotak tepat di tengah layar).
+        - bg-white : Warna background putih.
+        - p-6 : Padding (jarak dalam) ukuran 6.
+        - rounded-xl : Sudut kotak melengkung (rounded) ukuran Extra Large (xl).
+        - shadow-lg : Memberi bayangan agar kotak terlihat timbul (Large).
+    -->
+    <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">Ini Kotak Praktis</h2>
+        
+        <p class="text-gray-600 mb-4">
+            Lihat kode HTML di file ini. Kita tidak perlu pindah-pindah ke file CSS untuk mengatur desain. Cukup ketik namanya di atribut class!
+        </p>
+
+        <!-- 
+            Menganalisis Tombol:
+            - hover:bg-blue-700 : Saat mouse di atas tombol, warnanya berubah!
+        -->
+        <a href="#" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+            Klik Saya
+        </a>
+
+    </div>
+
+    <!-- PESAN UNTUK PESERTA PELATIHAN:
+         Pelajari arti class-class Tailwind di dokumentasi resminya: https://tailwindcss.com/docs 
+    -->
+
+</body>
+</html>
