@@ -1,43 +1,81 @@
-# Panduan Persiapan Pelatihan Web Development
+# Panduan Pelatihan Web Development & Workshop Multimedia
 
-Selamat datang di Pelatihan Web Development! Sebelum kita bertemu di sesi *Live Coding*, ada beberapa hal yang WAJIB kalian siapkan dan pelajari.
+Selamat datang di repositori Pelatihan Web Development dan Workshop Multimedia! Repositori ini menyediakan panduan praktikum, template proyek portofolio, serta modul-modul pembelajaran yang telah diselaraskan dengan materi kurikulum workshop (HTML, CSS, Tailwind CSS, serta Git & GitHub).
 
 ---
 
-## Tahap 1: Persiapan Alat
-Tolong install aplikasi berikut di laptop kalian sebelum hari H pelatihan untuk meminimalisir error:
+## 📁 Struktur Repositori
+
+```
+template-web-portofolio/
+├── Modul/
+│   ├── Modul-Git-GitHub/        # Panduan version control, branching, merge conflict, & GitHub
+│   ├── Modul-1-HTML-Dasar/      # Struktur kerangka HTML5, teks, tabel, media, & tag semantik
+│   ├── Modul-2-CSS-Dasar/       # Tata letak, CSS Box Model, pseudo-element, positioning, & media query
+│   ├── Modul-3-Tailwind-Dasar/  # Utility-first styling modern dengan Tailwind CSS CDN
+│   └── Template-Modul/          # Kerangka standar praktikum untuk penambahan modul baru
+├── Template-Web/                # Template starter portofolio siap pakai (HTML, CSS, JS, Images)
+└── README.md                    # Panduan utama pelatihan
+```
+
+---
+
+## 🛠️ Tahap 1: Persiapan Alat & Lingkungan
+
+Sebelum mengikuti sesi praktikum / *Live Coding*, pastikan aplikasi berikut telah terpasang di komputer Anda:
 
 1. **Text Editor: Visual Studio Code (VS Code)**
-   - Download di: https://code.visualstudio.com/
-   - **Wajib Install Ekstensi VS Code berikut:**
-     - `Live Server` (Agar web otomatis refresh saat kode disave).
-     - `Tailwind CSS IntelliSense` (Membantu auto-complete kode Tailwind).
-     - `Prettier - Code formatter` (Agar kode otomatis rapi).
+   - Unduh di: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+   - **Ekstensi yang direkomendasikan:**
+     - `Live Server` oleh Ritwick Dey (untuk reload otomatis saat berkas disimpan).
+     - `Tailwind CSS IntelliSense` (auto-complete class utility Tailwind).
+     - `Prettier - Code formatter` (perapian format kode otomatis).
 
 2. **Git & Akun GitHub**
-   - Download Git: https://git-scm.com/downloads (Install dengan pengaturan *Next-Next* saja).
-   - Buat akun GitHub: https://github.com/ (Gunakan email aktif).
+   - Unduh Git: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+   - Daftarkan akun aktif di: [https://github.com/](https://github.com/)
+   - Konfigurasi nama & email lokal:
+     ```bash
+     git config --global user.name "Nama Lengkap"
+     git config --global user.email "email-anda@domain.com"
+     ```
 
-3. **Web Browser**
-   - Disarankan menggunakan Google Chrome atau Microsoft Edge terbaru.
-
----
-
-## Tahap 2: Materi Pra-Pelatihan
-Di dalam folder `Modul/` terdapat 3 file. Buka file tersebut di VS Code dan **BACA KOMENTARNYA**. Kami sudah menjelaskan fungsi dari tag `<div>`, `<h1>`, margin, dll di dalam kodenya.
-- `01-html-dasar.html` (Belajar kerangka)
-- `02-css-dasar.css` (Belajar desain murni)
-- `03-tailwind-dasar.html` (Belajar cara cepat styling modern)
+3. **Web Browser Modern**
+   - Google Chrome, Mozilla Firefox, atau Microsoft Edge (versi terbaru dengan Developer Tools / `F12`).
 
 ---
 
-## Tahap 3: Solusi Error yang Sering Terjadi
+## 📚 Tahap 2: Daftar Modul Pembelajaran
 
-- **Masalah 1: "Live Server tidak mau jalan / error tidak ada tombol Go Live"**
-  *Solusi:* Pastikan kalian membuka VS Code dengan cara `File > Open Folder` (Buka seluruh foldernya), bukan `File > Open File`.
-- **Masalah 2: "Kode Tailwind saya tidak berubah warnanya"**
-  *Solusi:* Pastikan laptopmu terkoneksi internet, karena kita menggunakan Tailwind CDN (menarik script dari internet). Pastikan juga tidak ada *typo* pada class, contoh: `bg-blue-500`, bukan `bg-blue 500`.
-- **Masalah 3: "Error saat git push: Authentication failed"**
-  *Solusi:* GitHub sekarang mengharuskan login via browser saat pertama kali push. Pastikan kalian memilih *Sign in with Browser* saat pop-up muncul, atau buat *Personal Access Token (PAT)* di pengaturan GitHub.
+Setiap modul di bawah ini dilengkapi dengan buku petunjuk praktikum (`README.md`), aset gambar (`images/`), serta berkas kode contoh yang dapat langsung dijalankan:
+
+1. 🚀 **[Modul Git & GitHub](Modul/Modul-Git-GitHub/README.md)**  
+   *Mempelajari Distributed Version Control System (DVCS), Three Trees (Working Directory, Staging Area, Local Repo), Branching, Resolusi Merge Conflict, GitHub Remote, Pull Request, dan Daily Git Workflow.*
+
+2. 🧱 **[Modul 1: HTML Dasar](Modul/Modul-1-HTML-Dasar/README.md)**  
+   *Mempelajari analogi kerangka web, anatomi tag/elemen/atribut, pemformatan teks, media gambar & iFrame, data tabel terstruktur (`thead`, `tbody`), wadah `div`, serta tag semantik HTML5 (`header`, `nav`, `section`, `footer`).*
+
+3. 🎨 **[Modul 2: CSS Dasar](Modul/Modul-2-CSS-Dasar/README.md)**  
+   *Mempelajari pemisahan konten & visual, 3 metode CSS (Inline, Internal, External), selektor & pseudo-elements (`::before`, `::selection`), CSS Box Model, properti display, positioning (`fixed`, `relative`, `absolute`), serta Responsive Web Design menggunakan Media Query.*
+
+4. ⚡ **[Modul 3: Tailwind CSS Dasar](Modul/Modul-3-Tailwind-Dasar/README.md)**  
+   *Mempelajari konsep Utility-First CSS Framework, instalasi instan via CDN, perancangan tata letak responsif berbasis kelas, serta pembuatan antarmuka portofolio interaktif.*
+
+5. 🌐 **[Template Web Portofolio](Template-Web/index.html)**  
+   *Template dasar halaman portofolio mandiri dengan susunan `css/`, `js/`, dan `images/` yang siap dimodifikasi dan diunggah ke GitHub Pages.*
 
 ---
+
+## ❓ Tahap 3: Solusi Error yang Sering Terjadi
+
+* **Masalah 1: "Live Server tidak mau jalan / tidak ada tombol Go Live"**  
+  *Solusi:* Buka VS Code menggunakan menu **File > Open Folder** dan pilih folder induk proyek `template-web-portofolio`, bukan membuka satu berkas file saja secara terisolasi.
+
+* **Masalah 2: "Kode Tailwind saya tidak berubah warnanya / styling tidak aktif"**  
+  *Solusi:* Pastikan komputer terhubung ke internet saat memuat tag Tailwind CDN (`<script src="https://cdn.tailwindcss.com"></script>`). Periksa juga apakah terdapat saltik (*typo*) pada nama kelas (misal: gunakan `bg-blue-500`, bukan `bg-blue 500`).
+
+* **Masalah 3: "Error saat git push: Authentication failed"**  
+  *Solusi:* Pilih opsi *Sign in with Browser* ketika jendela otentikasi Git Credential Manager muncul, atau buat *Personal Access Token (PAT)* di pengaturan keamanan akun GitHub Anda.
+
+---
+&copy; 2026 Laboratorium Praktikum Web & Multimedia.

@@ -1,1 +1,11 @@
-js/
+# Abaikan folder js di root jika ada
+/js/
+!Modul/**/js/
+!Template-Web/**/js/
+
+# Abaikan template modul
+Modul/Template-Modul/
+Template-Modul/
+
+# Abaikan modul lama / modul lana
+modul lana/

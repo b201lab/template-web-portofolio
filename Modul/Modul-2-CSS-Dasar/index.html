@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Modul 2 - Styling Portofolio dengan CSS</title>
+
+  <!-- 1. Contoh Internal CSS (Sesuai Materi Slide: Metode Penulisan CSS) -->
+  <style>
+    /* Lencana Internal CSS */
+    .badge-internal {
+      background-color: #fef08a;
+      color: #854d0e;
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- 2. External CSS (Standar Industri: Menghubungkan style.css) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       NAVIGASI TETAP (POSITION: FIXED)
+       Kelanjutan dari <header> dan <nav> Modul 1
+       ================================================================= -->
+  <header class="header-fixed">
+    <div class="nav-container">
+      <div class="brand-logo">Porto<span>Dev</span></div>
+      <nav class="nav-menu">
+        <a href="#tentang">Tentang</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#media">Media</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Kontainer Utama Halaman -->
+  <main class="main-container">
+
+    <!-- =================================================================
+         BANNER / HERO SECTION
+         Kelanjutan dari Judul Modul 1 dengan sentuhan CSS Styling
+         ================================================================= -->
+    <section class="hero-card">
+      <span class="badge-internal">Lanjutan Modul 1 &bull; Modul 2 CSS</span>
+      <h1 class="hero-title">Website Profil & Portofolio Mahasiswa</h1>
+      <p class="hero-subtitle">
+        Kerangka HTML dari Modul 1 kini telah dipercantik menggunakan <strong>Cascading Style Sheets (CSS)</strong>.
+      </p>
+      <!-- Contoh Inline CSS (Sesuai Materi Slide) -->
+      <p style="color: #64748b; font-size: 0.9rem; font-style: italic; margin-top: 8px;">
+        (Kalimat ini diberi warna & format miring melalui <strong>Inline CSS</strong>)
+      </p>
+    </section>
+
+    <!-- =================================================================
+         SECTION 1: TENTANG SAYA & KARTU PROFIL
+         Kelanjutan dari Section 1 Modul 1 (Penerapan CSS Box Model & Flexbox)
+         ================================================================= -->
+    <section id="tentang" class="section-card">
+      <h2 class="section-title">1. Tentang Saya</h2>
+      <p class="intro-text">
+        Halo! Saya adalah seorang mahasiswa yang sedang mempelajari 
+        <strong>Web Development</strong>. Dalam analogi web, HTML bertindak sebagai 
+        <em>tulang kerangka</em>, CSS sebagai pakaian/kulit, dan JavaScript sebagai penggerak.
+      </p>
+
+      <!-- Komponen Kartu Profil (Penerapan Box Model: Margin, Border, Padding) -->
+      <div class="profil-card">
+        <div class="profil-image-wrapper">
+          <img src="../../Template-Web/images/ning2.jpg" alt="Foto Profil Mahasiswa" class="profil-avatar">
+          <span class="status-badge">Online</span>
+        </div>
+        <div class="profil-info">
+          <h3>Budi Pratama</h3>
+          <p class="role-text">Mahasiswa &amp; Junior Web Developer</p>
+          <p>
+            Sedang mendalami perancangan antarmuka web modern, hierarki CSS Box Model, flexbox layout, dan desain web responsif.
+          </p>
+          <div class="profil-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Git &amp; GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         SECTION 2: TABEL KEAHLIAN
+         Kelanjutan dari Tabel Modul 1 (Styling Tabel Modern: Zebra-striping & Borders)
+         ================================================================= -->
+    <section id="keahlian" class="section-card">
+      <h2 class="section-title">2. Tabel Daftar Keahlian</h2>
+      <p class="deskripsi-section">
+        Tabel berikut merupakan tabel data terstruktur dari Modul 1 yang telah ditata menggunakan CSS (garis tepi halus, ruang padding rapi, dan efek sorot baris):
+      </p>
+
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th style="width: 60px;">No</th>
+              <th>Keahlian / Teknologi</th>
+              <th>Tingkat</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">1</td>
+              <td><strong>HTML5 Semantik</strong></td>
+              <td><span class="badge-skill badge-green">Mahir</span></td>
+              <td>Menyusun kerangka dokumen yang rapi dan ramah mesin pencari (SEO)</td>
+            </tr>
+            <tr>
+              <td class="text-center">2</td>
+              <td><strong>CSS3 Styling &amp; Layout</strong></td>
+              <td><span class="badge-skill badge-blue">Menengah</span></td>
+              <td>Menguasai Box Model, Flexbox, Positioning, dan Media Queries</td>
+            </tr>
+            <tr>
+              <td class="text-center">3</td>
+              <td><strong>Git &amp; GitHub VCS</strong></td>
+              <td><span class="badge-skill badge-orange">Dasar</span></td>
+              <td>Version control, branching, pull request, dan kolaborasi tim</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         SECTION 3: MEDIA EKSTERNAL (IFRAME)
+         Kelanjutan dari iFrame Modul 1 (Container Responsif & Box Shadow)
+         ================================================================= -->
+    <section id="media" class="section-card">
+      <h2 class="section-title">3. Penyematan Konten Eksternal (iFrame)</h2>
+      <p class="deskripsi-section">
+        Elemen <code>&lt;iframe&gt;</code> Wikipedia dari Modul 1 kini dibungkus dengan kartu berbayang (box-shadow) dan sudut membulat (border-radius):
+      </p>
+
+      <div class="iframe-container">
+        <iframe 
+          src="https://en.wikipedia.org/wiki/HTML" 
+          title="Dokumentasi HTML Wikipedia"
+          class="styled-iframe">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         SECTION 4: KONTAK & TAUTAN EKSTERNAL
+         Kelanjutan dari Bagian Kontak Modul 1 (Tombol Aksi Interaktif :hover)
+         ================================================================= -->
+    <section id="kontak" class="section-card">
+      <h2 class="section-title">4. Kontak &amp; Tautan Eksternal</h2>
+      <p class="deskripsi-section">
+        Hubungi saya atau lihat portofolio proyek terkini melalui tombol aksi di bawah ini:
+      </p>
+
+      <div class="cta-buttons">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Buka GitHub Resmi &rarr;
+        </a>
+        <a href="mailto:email@contoh.com" class="btn btn-secondary">
+          Kirim Email
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Tombol Melayang Kembali ke Atas (Position: Fixed) -->
+  <a href="#" class="btn-floating-top" title="Kembali ke atas">&#8593;</a>
+
+  <!-- =================================================================
+       FOOTER
+       Kelanjutan dari Footer Modul 1
+       ================================================================= -->
+  <footer class="footer">
+    <p>&copy; 2026 Laboratorium Praktikum Web. Modul 2 - CSS Dasar (Lanjutan Modul 1).</p>
+  </footer>
+
+</body>
+</html>
