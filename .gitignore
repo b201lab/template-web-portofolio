@@ -1,8 +1,11 @@
+#Ignore js files
 /js/
 !Modul/**/js/
 !Template-Web/**/js/
+
+#Ignore Template
 Modul/Template-Modul/
 Template-Modul/
-modul lana/
+Template-Web/
 
-Template-Web/*
+modul lana/
