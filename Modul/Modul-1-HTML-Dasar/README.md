@@ -4,22 +4,9 @@ Selamat datang di **Modul 1: Pengenalan dan Dasar-Dasar HTML**! Modul ini diranc
 
 ---
 
-## 1. Tujuan Praktikum
-Setelah menyelesaikan modul praktikum ini, mahasiswa diharapkan mampu:
-1. Memahami konsep HyperText Markup Language (HTML) dan peran tripartit web (**HTML** sebagai kerangka, **CSS** sebagai tampilan/gaya, dan **JavaScript** sebagai interaktivitas/perilaku).
-2. Memahami cara kerja browser merender berkas HTML secara lokal maupun via web server (Live Server).
-3. Menguasai anatomi elemen HTML: *opening tag*, *content*, *closing tag*, *attributes*, dan *comments*.
-4. Mengimplementasikan tag-tag pemformatan teks: hierarki *heading* (`<h1>` s/d `<h6>`), paragraf (`<p>`), hyperlink (`<a>`), elemen inline (`<span>`), serta penekanan teks (`<b>` dan `<i>`).
-5. Menyajikan daftar terstruktur menggunakan *Unordered List* (`<ul>`) dan *Ordered List* (`<ol>`).
-6. Mengintegrasikan media visual dan konten luar ke dalam halaman web menggunakan tag `<img>` (lengkap dengan penanganan atribut `alt`) dan `<iframe>`.
-7. Merancang penyajian data tabular terstruktur menggunakan elemen tabel modern (`<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`).
-8. Memahami konsep *layout container* menggunakan `<div>` dan membandingkan struktur lawas HTML4 dengan tag semantik modern HTML5 (`<header>`, `<nav>`, `<section>`, `<article>`, `<footer>`).
+## Teori Dasar
 
----
-
-## 2. Teori Dasar
-
-### 2.1 Pengenalan HTML & Analogi 3 Pilar Web
+### 1. Pengenalan HTML & Analogi 3 Pilar Web
 **HTML** (*HyperText Markup Language*) adalah bahasa markah standar industri yang digunakan untuk menyusun kerangka dan struktur sebuah halaman web.
 
 Untuk memahami bagaimana sebuah website modern dibangun, perhatikan analogi tiga komponen utama:
@@ -49,7 +36,7 @@ Untuk memahami bagaimana sebuah website modern dibangun, perhatikan analogi tiga
 
 ---
 
-### 2.2 Anatomi Tag dan Elemen HTML
+### 2. Anatomi Tag dan Elemen HTML
 Elemen HTML pada umumnya tersusun dari tiga komponen utama:
 
 ```html
@@ -84,7 +71,7 @@ Komentar digunakan developer untuk memberikan penjelasan catatan pada kode. Kode
 
 ---
 
-### 2.3 Struktur Dasar Dokumen HTML5
+### 3. Struktur Dasar Dokumen HTML5
 Struktur dokumen HTML memiliki konsep kotak bersarang (*nested box hierarchy*):
 
 ```html
@@ -109,7 +96,7 @@ Struktur dokumen HTML memiliki konsep kotak bersarang (*nested box hierarchy*):
 
 ---
 
-### 2.4 Elemen Pemformatan Teks
+### 4. Elemen Pemformatan Teks
 
 #### 1. Heading (`<h1>` s/d `<h6>`)
 Digunakan untuk membuat judul dan sub-judul secara hierarkis (mirip pengaturan Heading 1 sampai Heading 6 pada dokumen Google Docs/MS Word):
@@ -186,7 +173,7 @@ Digunakan untuk menampilkan poin-poin daftar data:
 
 ---
 
-### 2.5 Media: Gambar dan iFrame
+### 5. Media: Gambar dan iFrame
 
 #### 1. Gambar (`<img>`)
 Tag `<img>` digunakan untuk menampilkan gambar. Tag ini tidak memerlukan tag penutup terpisah (*void / self-closing tag*).
@@ -210,7 +197,7 @@ Tag `<iframe>` (*Inline Frame*) digunakan untuk menyematkan halaman web lain ata
 
 ---
 
-### 2.6 Penyajian Data Menggunakan Tabel (`<table>`)
+### 6. Penyajian Data Menggunakan Tabel (`<table>`)
 Tabel digunakan untuk menyajikan data tabular yang rapi ke dalam baris dan kolom:
 * `<table>`: Elemen pembungkus tabel.
 * `<thead>`: Bagian kepala tabel (*table header group*).
@@ -255,7 +242,7 @@ Tabel digunakan untuk menyajikan data tabular yang rapi ke dalam baris dan kolom
 
 ---
 
-### 2.7 Tata Letak Web: `<div>` & Semantik HTML5
+### 7. Tata Letak Web: `<div>` & Semantik HTML5
 
 #### 1. Pembungkus Komponen (`<div>`)
 `<div>` (*Division*) adalah wadah netral (*block container*) yang bertindak seperti kardus pembungkus untuk menyatukan beberapa elemen (gambar, judul, deskripsi, tombol) menjadi satu kesatuan kartu komponen (*card component*) agar dapat ditata bersama oleh CSS:
@@ -337,7 +324,7 @@ Ganti pembungkus generik halaman Anda dengan struktur semantik:
 
 ---
 
-## 5. Tugas Modul / Praktikum
+## 5. Tugas Modul
 Buatlah berkas baru bernama `tugas-modul1.html` di dalam folder ini yang memuat:
 1. Struktur lengkap HTML5 (`<!DOCTYPE html>`, `<html>`, `<head>`, `<body>`).
 2. Penggunaan layout semantik: `<header>`, `<nav>`, minimal dua `<section>`, dan `<footer>`.

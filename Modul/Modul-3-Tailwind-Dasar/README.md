@@ -1,6 +1,6 @@
 # Modul 3: Styling Cepat & Modern dengan Tailwind CSS
 
-## 1. Tujuan Praktikum
+## 1. Tujuan 
 1. Memahami konsep Utility-First CSS Framework menggunakan Tailwind CSS.
 2. Mampu mengintegrasikan Tailwind CSS melalui CDN pada file HTML.
 3. Menguasai class-class utilitas populer untuk typography, spacing (margin/padding), flexbox/grid, background, rounded, dan shadow.

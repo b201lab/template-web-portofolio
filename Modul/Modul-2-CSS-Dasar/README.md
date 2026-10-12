@@ -4,22 +4,9 @@ Selamat datang di **Modul 2: Pengenalan dan Dasar-Dasar CSS**! Setelah menyusun 
 
 ---
 
-## 1. Tujuan Praktikum
-Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
-1. Memahami konsep dasar CSS dan perannya dalam memisahkan konten (HTML) dari penyajian visual.
-2. Membedakan dan mengimplementasikan 3 metode penerapan CSS (*Inline*, *Internal*, dan *External*).
-3. Menguasai sintaks dasar CSS, selektor elemen, selektor class, selektor ID, dan selektor universal (`*`).
-4. Mengimplementasikan *pseudo-element* (`::before`, `::after`, `::first-letter`, `::selection`).
-5. Memahami dan mengonfigurasi konsep **CSS Box Model** (*Content*, *Padding*, *Border*, *Margin*).
-6. Mengatur alur tampilan elemen menggunakan properti `display` (*block*, *inline*, *inline-block*, *flex*, *grid*, *none*).
-7. Mengontrol peletakan elemen dengan properti `position` (*static*, *relative*, *absolute*, *fixed*, *sticky*).
-8. Menerapkan prinsip dasar desain web responsif (*Responsive Web Design*) menggunakan *flexible units* dan *media queries*.
+## Teori Dasar
 
----
-
-## 2. Teori Dasar
-
-### 2.1 Apa Itu CSS dan Mengapa Dibutuhkan?
+### 1. Apa Itu CSS dan Mengapa Dibutuhkan?
 **CSS** (*Cascading Style Sheets*) adalah bahasa lembar gaya yang digunakan untuk mengatur tampilan visual dan tata letak halaman web.
 
 **Nilai Tambah & Alasan Penggunaan CSS:**
@@ -30,7 +17,7 @@ Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
 ---
 
-### 2.2 Tiga Cara Menambahkan CSS ke Dokumen HTML
+### 2. Tiga Cara Menambahkan CSS ke Dokumen HTML
 
 | Metode | Sintaks Contoh | Kelebihan | Kekurangan | Kapan Digunakan |
 | :--- | :--- | :--- | :--- | :--- |
@@ -40,7 +27,7 @@ Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
 ---
 
-### 2.3 Struktur Sintaks CSS
+### 3. Struktur Sintaks CSS
 Aturan penulisan CSS terdiri dari **Selector** dan **Declaration Block**:
 
 ```css
@@ -57,7 +44,7 @@ selector {
 
 ---
 
-### 2.4 CSS Selectors
+### 4. CSS Selectors
 1. **Element Selector**: Memilih elemen berdasarkan nama tag HTML.
    ```css
    p {
@@ -89,7 +76,7 @@ selector {
 
 ---
 
-### 2.5 Pseudo-Element
+### 5. Pseudo-Element
 *Pseudo-element* digunakan untuk menargetkan bagian khusus dari suatu elemen:
 
 * `::before` & `::after`: Menyisipkan konten dekoratif sebelum atau sesudah konten elemen asli (wajib menyertakan properti `content`).
@@ -117,7 +104,7 @@ selector {
 
 ---
 
-### 2.6 CSS Box Model
+### 6. CSS Box Model
 Setiap elemen di halaman web diperlakukan sebagai sebuah "kotak" empat lapis:
 
 ```
@@ -143,7 +130,7 @@ Setiap elemen di halaman web diperlakukan sebagai sebuah "kotak" empat lapis:
 
 ---
 
-### 2.7 Properti Display
+### 7. Properti Display
 Menentukan bagaimana elemen ditampilkan dan menempati ruang pada alur dokumen:
 
 * `display: block`: Memakan lebar horizontal 100% penuh dan selalu memulai baris baru (contoh default: `<div>`, `<p>`, `<h1>`).
@@ -155,7 +142,7 @@ Menentukan bagaimana elemen ditampilkan dan menempati ruang pada alur dokumen:
 
 ---
 
-### 2.8 Properti Position
+### 8. Properti Position
 Mengontrol koordinat posisi fisik elemen pada halaman web:
 
 1. `position: static` (Default): Mengikuti urutan normal dokumen HTML (properti `top`, `bottom`, `left`, `right`, dan `z-index` tidak berlaku).
@@ -166,7 +153,7 @@ Mengontrol koordinat posisi fisik elemen pada halaman web:
 
 ---
 
-### 2.9 Responsive Web Design (RWD) & Media Queries
+### 9. Responsive Web Design (RWD) & Media Queries
 Halaman web harus ramah pengguna baik diakses melalui smartphone layar kecil maupun monitor komputer besar.
 
 #### 1. Satuan Fleksibel (*Flexible Units*)
@@ -249,7 +236,7 @@ Bandingkan tabel keahlian Modul 1 yang sebelumnya menggunakan atribut bawaan `bo
 
 ---
 
-## 5. Tugas Modul / Praktikum
+## 5. Tugas Modul
 Buatlah halaman tugas mandiri bernama `tugas-modul2.html` dan `tugas-style.css` yang melanjutkan halaman tugas Modul 1 Anda (`tugas-modul1.html`) dengan spesifikasi:
 1. Hubungkan dokumen HTML dengan lembar gaya eksternal `tugas-style.css`.
 2. Tambahkan bilah navigasi tetap (*fixed navbar*) di bagian atas layar menggunakan `position: fixed`.
