@@ -190,7 +190,7 @@ Teknik CSS untuk menerapkan styling khusus saat kriteria layar tertentu terpenuh
 
 ---
 
-## 3. Alat dan Persiapan
+## Alat dan Persiapan
 1. **Text Editor**: Visual Studio Code.
 2. **Web Browser**: Google Chrome, Mozilla Firefox, atau Microsoft Edge (dengan fitur **DevTools / Inspect Element** via `F12`).
 3. **Berkas yang Digunakan**:
@@ -199,7 +199,7 @@ Teknik CSS untuk menerapkan styling khusus saat kriteria layar tertentu terpenuh
 
 ---
 
-## 4. Langkah-Langkah Praktikum (Hands-on)
+## Langkah-Langkah
 
 ### Langkah 1: Memeriksa Integrasi File CSS
 Buka berkas `index.html` pada VS Code. Perhatikan baris penghubung ke berkas CSS eksternal di dalam tag `<head>`:
@@ -236,7 +236,7 @@ Bandingkan tabel keahlian Modul 1 yang sebelumnya menggunakan atribut bawaan `bo
 
 ---
 
-## 5. Tugas Modul
+## Tugas Modul
 Buatlah halaman tugas mandiri bernama `tugas-modul2.html` dan `tugas-style.css` yang melanjutkan halaman tugas Modul 1 Anda (`tugas-modul1.html`) dengan spesifikasi:
 1. Hubungkan dokumen HTML dengan lembar gaya eksternal `tugas-style.css`.
 2. Tambahkan bilah navigasi tetap (*fixed navbar*) di bagian atas layar menggunakan `position: fixed`.
@@ -247,7 +247,7 @@ Buatlah halaman tugas mandiri bernama `tugas-modul2.html` dan `tugas-style.css` 
 
 ---
 
-## 6. Referensi
+## Referensi
 * Materi Presentasi Workshop Multimedia: *CSS (1).pdf*
 * [MDN Web Docs - CSS Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
 * [MDN Web Docs - CSS Layout and Positioning](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout)

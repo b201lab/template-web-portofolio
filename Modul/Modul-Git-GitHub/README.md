@@ -4,22 +4,9 @@ Selamat datang di **Modul Git & GitHub: Panduan Praktis untuk Kolaborasi Kode**!
 
 ---
 
-## 1. Tujuan Praktikum
-Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
-1. Memahami perbedaan mendasar antara **Git** (alat lokal) dan **GitHub** (layanan kolaborasi cloud).
-2. Memahami konsep tiga area kerja Git: *Working Directory*, *Staging Area*, dan *Local Repository*.
-3. Melakukan inisialisasi repositori, pelacakan berkas, *staging*, dan perekaman riwayat (*commit*).
-4. Memeriksa status dan perbedaan baris kode (*diff*) serta menavigasi riwayat perubahan (*log*, *checkout*, *reset*, *revert*).
-5. Mengelola cabang (*branch*), melakukan penggabungan (*merge*), dan menyelesaikan konflik kode (*merge conflict*).
-6. Menghubungkan repositori lokal ke repositori jarak jauh (*remote repository*) di GitHub (`push`, `pull`, `clone`).
-7. Memahami siklus kolaborasi profesional menggunakan *Fork*, *Branch*, dan *Pull Request (PR)*.
-8. Menerapkan alur kerja harian developer (*Daily Git Workflow*) dan praktik terbaik (*best practices*) penulisan commit.
+## Teori Dasar
 
----
-
-## 2. Teori Dasar
-
-### 2.1 Apa Itu Git dan GitHub?
+### 1. Apa Itu Git dan GitHub?
 
 ```
 +-------------------------------------------------------+
@@ -44,7 +31,7 @@ Setelah menyelesaikan modul ini, mahasiswa diharapkan mampu:
 
 ---
 
-### 2.2 Tiga Area Kerja Git (The Three Trees)
+### 2. Tiga Area Kerja Git (The Three Trees)
 Git mengelola berkas dalam tiga status lingkungan:
 
 ```
@@ -61,7 +48,7 @@ Git mengelola berkas dalam tiga status lingkungan:
 
 ---
 
-### 2.3 Perintah Dasar Penyimpanan
+### 3. Perintah Dasar Penyimpanan
 
 | Perintah | Deskripsi Fungsi |
 | :--- | :--- |
@@ -73,7 +60,7 @@ Git mengelola berkas dalam tiga status lingkungan:
 
 ---
 
-### 2.4 Memeriksa Perubahan dan Navigasi Riwayat
+### 4. Memeriksa Perubahan dan Navigasi Riwayat
 
 #### 1. Memeriksa Riwayat & Perbedaan Baris
 * **`git log`**: Menampilkan daftar riwayat commit (Hash ID, Author, Tanggal, dan Pesan).
@@ -91,7 +78,7 @@ Git mengelola berkas dalam tiga status lingkungan:
 
 ---
 
-### 2.5 Bekerja dengan Percabangan (Branching)
+### 5. Bekerja dengan Percabangan (Branching)
 
 **Mengapa Branch Sangat Penting?**
 Percabangan memungkinkan pengembang mengerjakan fitur baru atau eksperimen secara terisolasi tanpa mengacaukan kode utama (`main`) yang sedang stabil di lingkungan produksi.
@@ -112,7 +99,7 @@ Percabangan memungkinkan pengembang mengerjakan fitur baru atau eksperimen secar
 
 ---
 
-### 2.6 Mengatasi Konflik Penggabungan (Merge Conflict)
+### 6. Mengatasi Konflik Penggabungan (Merge Conflict)
 
 Konflik terjadi apabila dua cabang yang berbeda mengubah **baris kode yang sama persis** pada berkas yang sama, lalu digabungkan (*merge*). Git tidak dapat menebak kode mana yang benar sehingga memerlukan keputusan manusia.
 
@@ -139,7 +126,7 @@ Saat konflik terjadi, Git akan menyisipkan penanda konflik pada berkas:
 
 ---
 
-### 2.7 Terhubung dengan Repositori Jarak Jauh (GitHub Remote)
+### 7. Terhubung dengan Repositori Jarak Jauh (GitHub Remote)
 
 ```bash
 # Menautkan repositori lokal ke GitHub
@@ -160,7 +147,7 @@ git clone https://github.com/username/nama-repo.git
 
 ---
 
-### 2.8 Alur Kerja Kolaborasi (Fork, Clone, Pull Request)
+### 8. Alur Kerja Kolaborasi (Fork, Clone, Pull Request)
 
 ```
 [Repositori Asli / Organisasi]
@@ -192,7 +179,7 @@ git clone https://github.com/username/nama-repo.git
 
 ---
 
-### 2.9 Alur Kerja Harian Developer (Daily 4-Step Workflow)
+### 9. Alur Kerja Harian Developer (Daily 4-Step Workflow)
 
 Dalam lingkungan kerja profesional, terapkan 4 langkah standar berikut setiap hari:
 
@@ -216,7 +203,7 @@ Dalam lingkungan kerja profesional, terapkan 4 langkah standar berikut setiap ha
 
 ---
 
-### 2.10 Praktik Terbaik (Best Practices)
+### 10. Praktik Terbaik (Best Practices)
 * **Atomic Commits**: Buat commit secara berkala untuk unit perubahan kecil yang logis. Hindari menumpuk 50 perubahan file dalam 1 commit raksasa.
 * **Pesan Commit yang Jelas**: Gunakan pola deskriptif seperti konvensi *Conventional Commits*:
   * `feat:` untuk fitur baru (contoh: `feat: tambahkan navigasi responsif`)
@@ -227,7 +214,7 @@ Dalam lingkungan kerja profesional, terapkan 4 langkah standar berikut setiap ha
 
 ---
 
-## 3. Alat dan Persiapan
+## Alat dan Persiapan
 1. **Git CLI**: Terpasang di komputer (dapat dicek dengan `git --version`).
 2. **Akun GitHub**: Memiliki akun aktif di [GitHub.com](https://github.com).
 3. **Konfigurasi Identitas Git Global** (Wajib dilakukan satu kali di awal):
@@ -239,7 +226,7 @@ Dalam lingkungan kerja profesional, terapkan 4 langkah standar berikut setiap ha
 
 ---
 
-## 4. Langkah-Langkah Praktikum (Hands-on)
+## Langkah-Langkah
 
 ### Skenario 1: Memeriksa Status & Melakukan Commit Lokal
 1. Buka terminal di folder proyek ini.
@@ -292,7 +279,7 @@ Dalam lingkungan kerja profesional, terapkan 4 langkah standar berikut setiap ha
 
 ---
 
-## 5. Tugas Modul
+## Tugas Modul
 Kerjakan tugas praktikum Git & GitHub berikut:
 1. Pastikan komputer Anda telah terkonfigurasi dengan nama dan email GitHub Anda (`git config --list`).
 2. Buat sebuah branch baru di repositori lokal Anda dengan format nama `tugas-git/nama-panggilan-anda`.
@@ -305,7 +292,7 @@ Kerjakan tugas praktikum Git & GitHub berikut:
 
 ---
 
-## 6. Referensi
+## Referensi
 * Materi Presentasi Workshop Multimedia: *Menguasai Git & GitHub (1).pdf*
 * [Dokumentasi Resmi Git (Pro Git Book)](https://git-scm.com/book/id/v2)
 * [GitHub Skills - Latihan Interaktif Resmi](https://skills.github.com/)

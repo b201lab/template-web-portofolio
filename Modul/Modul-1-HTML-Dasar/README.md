@@ -279,7 +279,7 @@ Pada era HTML4, seluruh pembagian tata letak halaman dibuat menggunakan `<div>` 
 
 ---
 
-## 3. Alat dan Persiapan Praktikum
+## Alat dan Persiapan Praktikum
 1. **Kode Editor**: Visual Studio Code (direkomendasikan).
 2. **Web Browser**: Google Chrome, Mozilla Firefox, atau Microsoft Edge.
 3. **Ekstensi VS Code**: **Live Server** (oleh Ritwick Dey) agar halaman otomatis termuat ulang saat berkas disimpan.
@@ -287,7 +287,7 @@ Pada era HTML4, seluruh pembagian tata letak halaman dibuat menggunakan `<div>` 
 
 ---
 
-## 4. Langkah-Langkah Praktikum (Hands-on)
+## Langkah-Langkah Praktikum (Hands-on)
 
 ### Langkah 1: Membuka Berkas Latihan
 Buka folder `Modul/Modul-1-HTML-Dasar/` pada VS Code. Perhatikan berkas:
@@ -324,7 +324,7 @@ Ganti pembungkus generik halaman Anda dengan struktur semantik:
 
 ---
 
-## 5. Tugas Modul
+## Tugas Modul
 Buatlah berkas baru bernama `tugas-modul1.html` di dalam folder ini yang memuat:
 1. Struktur lengkap HTML5 (`<!DOCTYPE html>`, `<html>`, `<head>`, `<body>`).
 2. Penggunaan layout semantik: `<header>`, `<nav>`, minimal dua `<section>`, dan `<footer>`.
@@ -338,7 +338,7 @@ Buatlah berkas baru bernama `tugas-modul1.html` di dalam folder ini yang memuat:
 
 ---
 
-## 6. Referensi
+## Referensi
 * Slide Workshop Multimedia: *HTML (1).pdf*
 * [MDN Web Docs - HTML: HyperText Markup Language](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [W3Schools - HTML Tutorial & References](https://www.w3schools.com/html/)

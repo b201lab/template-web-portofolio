@@ -29,14 +29,14 @@ Tailwind CSS adalah framework CSS berparadigma **Utility-First**. Berbeda dengan
 
 ---
 
-## 3. Alat & Persiapan
+## Alat & Persiapan
 * **Text Editor**: Visual Studio Code / Antigravity IDE.
 * **Ekstensi Disarankan**: `Tailwind CSS IntelliSense`.
 * File contoh: [index.html](file:///C:/Users/justl/.gemini/antigravity/scratch/template-web-portofolio/Modul/Modul-3-Tailwind-Dasar/index.html).
 
 ---
 
-## 4. Langkah-Langkah Praktikum
+## Langkah-Langkah
 
 1. Buka [index.html](file:///C:/Users/justl/.gemini/antigravity/scratch/template-web-portofolio/Modul/Modul-3-Tailwind-Dasar/index.html).
 2. Perhatikan script CDN pada baris `<script src="https://cdn.tailwindcss.com"></script>`.
@@ -54,7 +54,7 @@ Tailwind CSS adalah framework CSS berparadigma **Utility-First**. Berbeda dengan
 
 ---
 
-## 5. Tugas Modul
+## Tugas Modul
 1. Buat satu halaman Hero Section atau Card Profil portofolio modern murni menggunakan class Tailwind CSS.
 2. Elemen wajib:
    - Navbar sederhana menggunakan Flexbox (`flex justify-between items-center`).
