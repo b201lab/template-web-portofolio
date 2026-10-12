@@ -13,7 +13,7 @@ template-web-portofolio/
 │   ├── Modul-1-HTML-Dasar/      # Struktur kerangka HTML5, teks, tabel, media, & tag semantik
 │   ├── Modul-2-CSS-Dasar/       # Tata letak, CSS Box Model, pseudo-element, positioning, & media query
 │   ├── Modul-3-Tailwind-Dasar/  # Utility-first styling modern dengan Tailwind CSS CDN
-│   └── Template-Modul/          # Kerangka standar praktikum untuk penambahan modul baru
+│   └── Modul-Vercel-Deployment/ # Panduan Deployment menggunakan Vercel
 ├── Template-Web/                # Template starter portofolio siap pakai (HTML, CSS, JS, Images)
 └── README.md                    # Panduan utama pelatihan
 ```
