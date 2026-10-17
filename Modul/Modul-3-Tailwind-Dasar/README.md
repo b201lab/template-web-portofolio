@@ -5,6 +5,7 @@
 2. Mampu mengintegrasikan Tailwind CSS melalui CDN pada file HTML.
 3. Menguasai class-class utilitas populer untuk typography, spacing (margin/padding), flexbox/grid, background, rounded, dan shadow.
 4. Menerapkan pseudo-class modifier (seperti `hover:`, `focus:`) langsung pada atribut class HTML.
+5. Membangun antarmuka portofolio web modern yang responsif menggunakan template siap pakai.
 
 ---
 
@@ -16,53 +17,166 @@ Tailwind CSS adalah framework CSS berparadigma **Utility-First**. Berbeda dengan
 * **Pengembangan Lebih Cepat**: Tidak perlu berpindah bolak-balik antara file HTML dan CSS.
 * **Konsistensi Desain**: Nilai spasi, warna, dan font sudah terstandarisasi.
 * **Maintainable**: Mengubah desain satu elemen tidak akan merusak tampilan elemen di bagian lain website.
+* **Bebas Pusing Nama Class**: Tidak perlu memikirkan nama class rumit seperti `.hero-card-inner-container-wrapper`.
 
-### 2.2 Anatomi Utility Classes Populer
-| Kategori | Nama Class Tailwind | Fungsi CSS Ekuivalen |
-| --- | --- | --- |
-| **Typography** | `text-3xl`, `font-bold`, `text-blue-600`, `text-center` | Font size, weight, color, alignment |
-| **Spacing** | `p-6` (padding), `mb-8` (margin-bottom), `mx-auto` (horizontal auto) | Spacing dalam dan luar |
-| **Sizing** | `max-w-md`, `w-full`, `h-64` | Batasan lebar dan tinggi |
-| **Borders & Corners** | `rounded-xl`, `border`, `border-gray-200` | Sudut melengkung & garis tepi |
-| **Effects** | `shadow-lg`, `shadow-xl`, `transition-all` | Efek bayangan & animasi transisi |
-| **Pseudo-Classes** | `hover:bg-blue-700`, `hover:shadow-2xl` | Mengubah gaya saat disentuh kursor |
-
----
-
-## Alat & Persiapan
-* **Text Editor**: Visual Studio Code / Antigravity IDE.
-* **Ekstensi Disarankan**: `Tailwind CSS IntelliSense`.
-* File contoh: [index.html](file:///C:/Users/justl/.gemini/antigravity/scratch/template-web-portofolio/Modul/Modul-3-Tailwind-Dasar/index.html).
-
----
-
-## Langkah-Langkah
-
-1. Buka [index.html](file:///C:/Users/justl/.gemini/antigravity/scratch/template-web-portofolio/Modul/Modul-3-Tailwind-Dasar/index.html).
-2. Perhatikan script CDN pada baris `<script src="https://cdn.tailwindcss.com"></script>`.
-3. Analisis elemen card:
-   ```html
-   <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-   ...
-   </div>
-   ```
-4. Buka halaman di browser dengan Live Server.
-5. Lakukan eksperimen:
-   - Ubah warna tombol dari `bg-blue-500` menjadi warna lain (contoh: `bg-emerald-500`, `bg-purple-600`).
-   - Ubah `rounded-xl` menjadi `rounded-full`.
-   - Tambahkan efek `hover:scale-105` pada tombol untuk animasi zoom saat disentuh kursor.
+### 2.2 Rumus Pola Pikir Tailwind untuk Pemula
+Sebelum menghafal class, pahami rumus singkat Tailwind berikut:
+1. **Skala Spacing (Kelipatan 4px):**  
+   Angka di Tailwind dikalikan dengan 4px:
+   * `p-1` = 4px | `p-2` = 8px | `p-4` = 16px | `p-6` = 24px | `p-10` = 40px
+2. **Nilai Khusus / Arbitrary Value `[...]`:**  
+   Jika butuh warna heksadesimal atau ukuran spesifik di luar palet bawaan, bungkus dengan kurung siku:
+   * Warna: `bg-[#f6f7f3]`, `text-[#376b55]`
+   * Ukuran: `max-w-[960px]`, `text-[0.95rem]`
+3. **Sistem Responsif Mobile-First:**  
+   Gaya tanpa awalan berlaku untuk layar HP ($0px+$). Awalan berlaku saat layar membesar:
+   * `sm:` $\rightarrow$ Layar $\ge 640px$ (tablet kecil)
+   * `md:` $\rightarrow$ Layar $\ge 768px$ (tablet / laptop)
+   * `lg:` $\rightarrow$ Layar $\ge 1024px$ (desktop)
 
 ---
 
-## Tugas Modul
-1. Buat satu halaman Hero Section atau Card Profil portofolio modern murni menggunakan class Tailwind CSS.
-2. Elemen wajib:
-   - Navbar sederhana menggunakan Flexbox (`flex justify-between items-center`).
-   - Foto profil dengan sudut bulat penuh (`rounded-full`) dan border tebal.
-   - Tombol CTA ("Hubungi Saya") dengan interaksi hover warna dan transisi mulus.
+## 📚 3. Kamus Lengkap Class Tailwind (Portofolio Edition)
+
+Berikut adalah kamus lengkap seluruh class Tailwind yang kita gunakan dalam pembuatan Web Portofolio:
+
+### A. Tata Letak & Ukuran (Layout & Sizing)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `max-w-[960px]` | `max-width: 960px;` | Membatasi lebar konten maksimal 960px agar rapi di monitor lebar |
+| `min-h-[68px]` | `min-height: 68px;` | Menetapkan tinggi minimal bilah navigasi (navbar) |
+| `min-h-screen` | `min-height: 100vh;` | Memastikan tinggi halaman minimal setinggi satu layar penuh |
+| `w-36 h-36` | `width: 9rem; height: 9rem;` | Ukuran foto profil di layar HP (144px x 144px) |
+| `sm:w-44 sm:h-44` | `@media ... { width: 11rem; height: 11rem; }` | Ukuran foto profil membesar menjadi 176px di layar $\ge 640px$ |
+| `w-full` | `width: 100%;` | Mengisi lebar 100% penuh wadah induk |
+| `shrink-0` | `flex-shrink: 0;` | Mencegah foto profil mengecil/gepeng jika teks di sampingnya panjang |
 
 ---
 
-## Referensi
+### B. Jarak & Ruang (Margin, Padding, Gap)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `mx-auto` | `margin-left: auto; margin-right: auto;` | Memposisikan kontainer tepat di tengah horizontal |
+| `px-6` | `padding-left: 24px; padding-right: 24px;` | Memberi margin aman di sisi kiri dan kanan layar |
+| `py-10` | `padding-top: 40px; padding-bottom: 40px;` | Jarak dalam atas-bawah pada section About dan Skills |
+| `py-14 sm:py-16` | Responsif padding vertikal (56px $\rightarrow$ 64px) | Ruang lega pada bagian atas dan bawah Hero section |
+| `px-3.5 py-1.5` | `padding: 6px 14px;` | Bantalan dalam kotak lencana (badge) keterampilan |
+| `mt-1` | `margin-top: 4px;` | Jarak kecil ke atas untuk judul |
+| `mb-2` | `margin-bottom: 8px;` | Jarak kecil ke bawah untuk judul nama H1 |
+| `gap-2.5` | `gap: 10px;` | Jarak antar kartu badge skill |
+| `gap-4` | `gap: 16px;` | Jarak antar elemen navigasi saat membungkus |
+| `gap-6` | `gap: 24px;` | Jarak spasi antar tautan menu di navbar |
+| `gap-8 sm:gap-10` | `gap: 32px;` $\rightarrow$ `gap: 40px;` | Jarak antara foto profil dan teks perkenalan |
+
+---
+
+### C. Flexbox (Tata Letak 1 Dimensi)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `flex` | `display: flex;` | Mengaktifkan flexbox pada kontainer |
+| `flex-col` | `flex-direction: column;` | Menyusun elemen berbaris vertikal (dari atas ke bawah) |
+| `flex-row` | `flex-direction: row;` | Menyusun elemen berjejer horizontal (ke samping) |
+| `sm:flex-row` | Responsive flex direction | Di HP tersusun vertikal, di layar lebar berubah menjadi horizontal |
+| `items-center` | `align-items: center;` | Meratakan elemen tepat di tengah secara vertikal |
+| `items-start` | `align-items: flex-start;` | Menyelaraskan elemen rapat ke atas |
+| `justify-between` | `justify-content: space-between;` | Memisahkan logo ke ujung kiri dan menu ke ujung kanan |
+| `flex-wrap` | `flex-wrap: wrap;` | Otomatis melipat elemen ke baris baru jika ruang tidak cukup |
+
+---
+
+### D. CSS Grid (Tata Letak 2 Dimensi Kolom)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `grid` | `display: grid;` | Mengaktifkan sistem layout grid |
+| `grid-cols-1` | `grid-template-columns: repeat(1, minmax(0, 1fr));` | Menampilkan 1 kolom penuh di layar HP (judul di atas isi) |
+| `md:grid-cols-[220px_1fr]` | `grid-template-columns: 220px 1fr;` | Pada layar laptop ($\ge 768px$), bagi 2 kolom: kiri 220px, kanan sisa ruang |
+
+---
+
+### E. Tipografi (Teks & Tulisan)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `font-sans` | `font-family: ui-sans-serif, system-ui, ...;` | Menggunakan font keluarga modern tanpa kait (*sans-serif*) |
+| `font-bold` | `font-weight: 700;` | Menebalkan teks |
+| `text-xs` | `font-size: 0.75rem; (12px)` | Teks ekstra kecil untuk status eyebrow |
+| `text-base` | `font-size: 1rem; (16px)` | Ukuran teks normal untuk paragraf dan link |
+| `text-2xl` | `font-size: 1.5rem; (24px)` | Ukuran judul sub-bab H2 (About Me, Skills) |
+| `text-4xl` | `font-size: 2.25rem; (36px)` | Ukuran judul nama H1 di layar ponsel |
+| `sm:text-[2.6rem]` | `font-size: 2.6rem; (41.6px)` | Ukuran judul nama H1 membesar di monitor lebar |
+| `text-[0.95rem]` | `font-size: 0.95rem; (15.2px)` | Ukuran proporsional teks menu dan kartu badge skill |
+| `uppercase` | `text-transform: uppercase;` | Mengubah teks menjadi huruf kapital semua secara otomatis |
+| `tracking-[0.08em]` | `letter-spacing: 0.08em;` | Menambah spasi renggang antar karakter huruf agar elegan |
+| `leading-tight` | `line-height: 1.25;` | Merapatkan spasi baris teks pada judul besar |
+| `leading-relaxed` | `line-height: 1.625;` | Memberi spasi baris yang renggang dan nyaman untuk paragraf |
+
+---
+
+### F. Warna & Latar Belakang (Color & Background)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `bg-[#f6f7f3]` | `background-color: #f6f7f3;` | Warna dasar halaman krem lembut yang nyaman di mata |
+| `bg-white` | `background-color: #ffffff;` | Latar belakang putih bersih untuk header dan kartu badge |
+| `bg-[#dfe5df]` | `background-color: #dfe5df;` | Warna abu kehijauan lembut untuk placeholder foto |
+| `text-[#24312b]` | `color: #24312b;` | Warna teks utama gelap kehijauan (tajam & kontras tinggi) |
+| `text-[#376b55]` | `color: #376b55;` | Warna hijau botol elegan untuk aksen status dan judul nama |
+| `text-[#68736d]` | `color: #68736d;` | Warna teks abu-abu sekunder untuk deskripsi minat dan link |
+
+---
+
+### G. Border & Bentuk (Borders & Shapes)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `border` | `border-width: 1px; border-style: solid;` | Memberi garis tepi tipis di sekeliling kotak badge |
+| `border-b` | `border-bottom-width: 1px;` | Garis pembatas tipis di bagian bawah header |
+| `border-t` | `border-top-width: 1px;` | Garis pembatas horizontal di atas section About dan Skills |
+| `border-[#dfe5df]` | `border-color: #dfe5df;` | Memberikan warna abu-abu kehijauan lembut pada garis border |
+| `rounded` | `border-radius: 0.25rem; (4px)` | Sudut kotak badge sedikit melengkung halus |
+| `rounded-full` | `border-radius: 9999px; (50%)` | **Kunci foto bulat:** Mengubah kotak foto menjadi lingkaran penuh |
+| `object-cover` | `object-fit: cover;` | Memastikan gambar mengisi lingkaran penuh tanpa distorsi/gepeng |
+
+---
+
+### H. Interaktivitas & Efek (Hover & Smooth Scroll)
+
+| Class Tailwind | Padanan CSS | Fungsi & Penggunaan pada Portofolio |
+| :--- | :--- | :--- |
+| `hover:text-[#376b55]` | `:hover { color: #376b55; }` | Mengubah warna link menjadi hijau saat disentuh kursor |
+| `transition-colors` | `transition-property: color;` | Animasi perpindahan warna yang lembut (tidak kaku) |
+| `scroll-smooth` | `html { scroll-behavior: smooth; }` | Halaman bergeser mulus saat link anchor (`#about`, dll.) diklik |
+| `scroll-mt-6` | `scroll-margin-top: 1.5rem;` | Memberi jarak aman di atas agar judul tidak tertutup saat scroll |
+
+---
+
+## 🛠️ 4. Template Latihan Praktikum
+
+Untuk sesi praktik koding langsung, repositori ini telah dilengkapi dengan template portofolio yang siap digunakan:
+
+📁 **Jalur Template:** [`Modul/Modul-3-Tailwind-Dasar/TailWind-Template/`](TailWind-Template/)
+* 📄 **`TailWind-Template/index.html`**: Kerangka HTML bersih dengan atribut `class=""` kosong yang siap kamu ketik bersama instruktur.
+* 🖼️ **`TailWind-Template/images/ning2.jpg`**: Aset foto profil yang digunakan di Hero section.
+
+---
+
+## 🚀 5. Langkah-Langkah Praktik di Kelas
+
+1. Buka file **`TailWind-Template/index.html`** di VS Code.
+2. Klik kanan pada editor $\rightarrow$ pilih **Open with Live Server**.
+3. Ketik class Tailwind secara bertahap mengikuti urutan berikut:
+   * **Tahap 1:** Atur latar halaman pada tag `<body>`: `bg-[#f6f7f3] text-[#24312b] font-sans`.
+   * **Tahap 2:** Rapikan navbar dengan Flexbox: `max-w-[960px] mx-auto flex justify-between items-center`.
+   * **Tahap 3:** Buat foto profil melingkar di Hero: `w-44 h-44 rounded-full object-cover`.
+   * **Tahap 4:** Buat layout 2 kolom pada About & Skills: `grid grid-cols-1 md:grid-cols-[220px_1fr]`.
+   * **Tahap 5:** Hias badge keterampilan: `px-3.5 py-1.5 bg-white border border-[#dfe5df] rounded`.
+
+---
+
+## 📝 Referensi
 * [Dokumentasi Resmi Tailwind CSS](https://tailwindcss.com/docs)
 * [Tailwind CSS Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)
