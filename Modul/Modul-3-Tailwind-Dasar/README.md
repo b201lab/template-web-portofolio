@@ -36,7 +36,182 @@ Sebelum menghafal class, pahami rumus singkat Tailwind berikut:
 
 ---
 
-## 3. Kamus Lengkap Class Tailwind (Portofolio Edition)
+## 3. Contoh Penggunaan Tailwind dan Perbandingannya dengan CSS
+
+Berikut adalah perbandingan langsung cara membuat komponen umum antarmuka web menggunakan CSS konvensional dibandingkan dengan Tailwind CSS:
+
+### 3.1 Tombol Interaktif (Button & Hover)
+
+#### A. Menggunakan CSS Biasa:
+Memerlukan penamaan class baru dan aturan selector terpisah di file `.css`:
+```css
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+```
+Penerapan di HTML:
+```html
+<button class="btn-primary">Kirim Pesan</button>
+```
+
+#### B. Menggunakan Tailwind CSS:
+Cukup dituliskan langsung pada atribut class elemen HTML:
+```html
+<button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+  Kirim Pesan
+</button>
+```
+
+---
+
+### 3.2 Kartu Profil (Card, Padding, & Shadow)
+
+#### A. Menggunakan CSS Biasa:
+```css
+.card {
+  max-width: 384px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f3f4f6;
+}
+```
+Penerapan di HTML:
+```html
+<div class="card">
+  <h3>Nama Anda</h3>
+  <p>Deskripsi profil singkat.</p>
+</div>
+```
+
+#### B. Menggunakan Tailwind CSS:
+```html
+<div class="max-w-sm mx-auto bg-white p-6 rounded-xl shadow-md border border-gray-100">
+  <h3 class="text-xl font-bold text-gray-800">Nama Anda</h3>
+  <p class="text-gray-600 mt-2 text-sm">Deskripsi profil singkat.</p>
+</div>
+```
+
+---
+
+### 3.3 Foto Profil Bulat Sempurna (Avatar)
+
+#### A. Menggunakan CSS Biasa:
+```css
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+```
+Penerapan di HTML:
+```html
+<img src="images/ning2.jpg" alt="Foto Profil" class="avatar">
+```
+
+#### B. Menggunakan Tailwind CSS:
+```html
+<img src="images/ning2.jpg" alt="Foto Profil" class="w-32 h-32 rounded-full object-cover shrink-0">
+```
+
+---
+
+### 3.4 Bilah Navigasi Sejajar (Flexbox)
+
+#### A. Menggunakan CSS Biasa:
+```css
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+```
+Penerapan di HTML:
+```html
+<nav class="navbar">
+  <a href="#" class="brand">Portofolio</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+  </div>
+</nav>
+```
+
+#### B. Menggunakan Tailwind CSS:
+```html
+<nav class="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200">
+  <a href="#" class="font-bold text-gray-900">Portofolio</a>
+  <div class="flex gap-4 text-sm text-gray-600">
+    <a href="#about" class="hover:text-blue-600">About</a>
+    <a href="#skills" class="hover:text-blue-600">Skills</a>
+  </div>
+</nav>
+```
+
+---
+
+### 3.5 Tata Letak Responsif (Mobile-First Breakpoint)
+
+#### A. Menggunakan CSS Biasa:
+Harus membuat aturan media query terpisah di bagian bawah file CSS:
+```css
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .container-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+```
+Penerapan di HTML:
+```html
+<div class="container-grid">
+  <div>Kolom 1</div>
+  <div>Kolom 2</div>
+</div>
+```
+
+#### B. Menggunakan Tailwind CSS:
+Cukup gunakan awalan breakpoint `md:` langsung pada tag container:
+```html
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+  <div>Kolom 1</div>
+  <div>Kolom 2</div>
+</div>
+```
+
+---
+
+## 4. Kamus Lengkap Class Tailwind (Portofolio Edition)
 
 Berikut adalah kamus lengkap seluruh class Tailwind yang kita gunakan dalam pembuatan Web Portofolio:
 
@@ -154,7 +329,7 @@ Berikut adalah kamus lengkap seluruh class Tailwind yang kita gunakan dalam pemb
 
 ---
 
-## 4. Template Latihan Praktikum
+## 5. Template Latihan Praktikum
 
 Untuk sesi praktik koding langsung, repositori ini telah dilengkapi dengan template portofolio yang siap digunakan:
 
@@ -164,6 +339,6 @@ Untuk sesi praktik koding langsung, repositori ini telah dilengkapi dengan templ
 
 ---
 
-## 5. Referensi
+## 6. Referensi
 * [Dokumentasi Resmi Tailwind CSS](https://tailwindcss.com/docs)
 * [Tailwind CSS Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)
