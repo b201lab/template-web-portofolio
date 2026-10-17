@@ -1,299 +1,213 @@
-# Modul Git & GitHub: Panduan Praktis Version Control & Kolaborasi Tim
+# 🚀 Panduan Praktis Git & GitHub untuk Pemula
 
-Selamat datang di **Modul Git & GitHub: Panduan Praktis untuk Kolaborasi Kode**! Modul ini dirancang untuk membekali Anda dengan keterampilan fundamental dalam mengelola versi kode (*Version Control System*), bekerja dengan percabangan (*branching*), mengatasi konflik kode (*merge conflict*), hingga berkolaborasi dalam tim menggunakan GitHub melalui alur kerja industri modern.
-
----
-
-## Teori Dasar
-
-### 1. Apa Itu Git dan GitHub?
-
-```
-+-------------------------------------------------------+
-|  GIT (Local Machine)                                  |
-|  - Sistem Kontrol Versi Terdistribusi (DVCS)          |
-|  - Bekerja secara luring (offline) di komputer Anda   |
-|  - Melacak setiap baris riwayat perubahan berkas      |
-+-------------------------------------------------------+
-                           |
-                     git push / pull
-                           v
-+-------------------------------------------------------+
-|  GITHUB (Cloud Platform)                              |
-|  - Layanan hosting daring untuk repositori Git        |
-|  - Tempat kolaborasi tim (Pull Requests, Code Review) |
-|  - Portofolio publik & automasi CI/CD                 |
-+-------------------------------------------------------+
-```
-
-* **Git**: Alat/perangkat lunak *Version Control System* (VCS) terdistribusi yang berjalan di komputer lokal untuk melacak perubahan berkas, memungkinkan kita kembali ke versi masa lalu (*time-travel*), dan memfasilitasi penggabungan kode tanpa saling menimpa.
-* **GitHub**: Platform berbasis web milik Microsoft yang menjadi tempat menyimpan repositori Git di cloud, memungkinkan kolaborasi multi-developer, pelacakan isu (*issues*), dan pengajuan kontribusi kode (*Pull Requests*).
+Selamat datang di modul **Git & GitHub**! Modul ini dirancang dengan pendekatan praktis dan ramah pemula agar kamu bisa langsung menguasai cara menyimpan versi kodingan, mencadangkan proyek ke cloud, dan berkolaborasi tanpa takut kodingan rusak atau hilang.
 
 ---
 
-### 2. Tiga Area Kerja Git (The Three Trees)
-Git mengelola berkas dalam tiga status lingkungan:
+## 💡 1. Analogi Sederhana: Apa Itu Git & GitHub?
+
+Sering kali pemula bingung membedakan antara **Git** dan **GitHub**. Cara termudah memahaminya:
 
 ```
-+--------------------+       git add       +--------------------+      git commit      +--------------------+
-| WORKING DIRECTORY  |  ---------------->  |    STAGING AREA    |  ----------------->  |  LOCAL REPOSITORY  |
-| (Folder Proyek     |                     |   (Ruang Tunggu    |                      |   (.git database   |
-|  tempat mengedit)  |  <----------------  |  Persiapan Commit) |  <-----------------  |  snapshot riwayat) |
-+--------------------+      git restore    +--------------------+       git reset      +--------------------+
++-------------------------------------------------------------+
+| 💻 GIT (Di Komputer Lokal)                                  |
+| Seperti "KAMERA SNAPSHOT" / Mesin Waktu.                    |
+| - Bekerja secara offline di komputermu.                     |
+| - Merekam riwayat perubahan kodingan baris demi baris.      |
+| - Memungkinkan kamu kembali ke masa lalu jika ada error.    |
++-------------------------------------------------------------+
+                              |
+               Diunggah lewat: git push
+                              v
++-------------------------------------------------------------+
+| ☁️ GITHUB (Di Internet / Cloud)                             |
+| Seperti "GOOGLE DRIVE / MEDIA SOSIAL KHUSUS KODING".        |
+| - Tempat menyimpan cadangan proyekmu secara online.         |
+| - Tempat memamerkan portofolio koding ke perekrut/klien.    |
+| - Tempat bekerja sama dalam satu tim tanpa saling menimpa.  |
++-------------------------------------------------------------+
 ```
-
-1. **Working Directory (Ruang Kerja)**: Direktori fisik tempat Anda membuat, mengedit, atau menghapus berkas kode.
-2. **Staging Area / Index (Ruang Persiapan)**: Area perantara tempat berkas didaftarkan sebelum disimpan permanen. Anda dapat memilih berkas mana saja yang sudah siap dimasukkan ke commit berikutnya.
-3. **Local Repository (.git)**: Basis data lokal tempat Git menyimpan snapshot riwayat proyek secara permanen bersama metadata pengarang, waktu, dan pesan commit.
 
 ---
 
-### 3. Perintah Dasar Penyimpanan
+## 📦 2. Pahami "Alur 3 Meja Kerja" Git
 
-| Perintah | Deskripsi Fungsi |
-| :--- | :--- |
-| `git init` | Menginisialisasi folder biasa menjadi repositori Git lokal (membuat folder tersembunyi `.git`). |
-| `git status` | Melihat kondisi berkas saat ini (apakah *Untracked*, *Modified*, atau *Staged*). |
-| `git add <nama-file>` | Memindahkan berkas tertentu dari *Working Directory* ke *Staging Area*. |
-| `git add .` | Memindahkan seluruh berkas baru dan berkas yang dimodifikasi ke *Staging Area*. |
-| `git commit -m "pesan"` | Menyimpan permanen seluruh berkas di *Staging Area* sebagai riwayat (*commit* baru). |
-
----
-
-### 4. Memeriksa Perubahan dan Navigasi Riwayat
-
-#### 1. Memeriksa Riwayat & Perbedaan Baris
-* **`git log`**: Menampilkan daftar riwayat commit (Hash ID, Author, Tanggal, dan Pesan).
-  * Opsi praktis: `git log --oneline --graph --decorate`
-* **`git diff`**: Memeriksa perubahan baris per baris yang belum di-stage (warna merah `-` untuk baris terhapus, hijau `+` untuk baris baru).
-* **`git diff --staged`**: Memeriksa perubahan baris yang sudah berada di Staging Area.
-
-#### 2. Navigasi & Pembatalan Riwayat (Time Travel)
-* **`git checkout <commit-hash>`**: Berpindah sementara untuk melihat kondisi kode di titik masa lampau tertentu (*detached HEAD*).
-* **`git revert <commit-hash>`**: Membatalkan perubahan dari commit tertentu dengan **membuat commit baru yang membalikkan efeknya**. Sangat aman digunakan pada branch publik/kolaborasi tim.
-* **`git reset`**: Menggeser pointer HEAD ke commit sebelumnya:
-  * `--soft`: Membatalkan commit, namun kode yang diubah tetap berada di Staging Area.
-  * `--mixed` (default): Membatalkan commit dan unstage, kode tetap ada di Working Directory.
-  * `--hard`: **Perhatian!** Menghapus seluruh commit dan mengembalikan berkas ke titik sebelumnya secara permanen.
-
----
-
-### 5. Bekerja dengan Percabangan (Branching)
-
-**Mengapa Branch Sangat Penting?**
-Percabangan memungkinkan pengembang mengerjakan fitur baru atau eksperimen secara terisolasi tanpa mengacaukan kode utama (`main`) yang sedang stabil di lingkungan produksi.
+Sebelum mengetik perintah, pahami alur kerja Git yang mirip dengan proses **mengepak barang untuk dikirim**:
 
 ```
-       (fitur-navbar)  [Commit A] ---> [Commit B]
-                            /                         \ (git merge)
-                           /                           v
-(main) [Commit 1] ----> [Commit 2] ----------------> [Commit 3]
++--------------------+        git add        +--------------------+      git commit      +--------------------+
+| WORKING DIRECTORY  |  -------------------> |    STAGING AREA    |  ----------------->  |     REPOSITORY     |
+|   (Meja Kerja)     |                       |  (Kardus Paket)    |                      |   (Gudang Arsip)   |
+| Tempat kamu edit   |  <------------------- | Tempat persiapan   |  <-----------------  | Tersimpan permanen |
+| file HTML/CSS/JS   |       git restore     | file yang dipilih  |       git reset      | riwayat commit-nya |
++--------------------+                       +--------------------+                      +--------------------+
+                                                                                                    |
+                                                                                             git push origin main
+                                                                                                    v
+                                                                                         +--------------------+
+                                                                                         |       GITHUB       |
+                                                                                         |   (Awan Cloud)     |
+                                                                                         +--------------------+
 ```
 
-* **`git branch`**: Melihat daftar cabang yang ada di repositori lokal.
-* **`git branch <nama-branch>`**: Membuat cabang baru tanpa langsung berpindah.
-* **`git checkout <nama-branch>`** atau **`git switch <nama-branch>`**: Berpindah ke cabang yang dituju.
-* **`git checkout -b <nama-branch>`**: Membuat cabang baru sekaligus langsung berpindah ke cabang tersebut.
-* **`git merge <nama-branch>`**: Menggabungkan perubahan dari cabang target ke cabang aktif saat ini.
-* **`git branch -d <nama-branch>`**: Menghapus cabang lokal yang sudah selesai digabungkan.
+1. **Working Directory (Meja Kerja):** Tempat kamu mengetik kodingan di VS Code.
+2. **Staging Area (Kardus Paket):** Tempat mengumpulkan file-file yang sudah selesai dan siap dibungkus.
+3. **Repository (Gudang Penyimpanan):** Tempat snapshot riwayat proyek disimpan permanen dengan label pesan (*commit*).
+4. **GitHub (Cloud):** Salinan gudang penyimpanan yang diunggah ke internet.
 
 ---
 
-### 6. Mengatasi Konflik Penggabungan (Merge Conflict)
+## ⚡ 3. Empat "Mantra Sakti" Git (Dipakai 90% Waktu Koding)
 
-Konflik terjadi apabila dua cabang yang berbeda mengubah **baris kode yang sama persis** pada berkas yang sama, lalu digabungkan (*merge*). Git tidak dapat menebak kode mana yang benar sehingga memerlukan keputusan manusia.
+Dalam aktivitas koding sehari-hari, kamu hanya perlu mengingat **4 langkah berurutan** ini:
 
-Saat konflik terjadi, Git akan menyisipkan penanda konflik pada berkas:
-
-```html
-<<<<<<< HEAD
-<h1>Portofolio Milik Budi Santoso</h1>
-=======
-<h1>Portofolio Resmi Budi - Web Developer</h1>
->>>>>>> feature-title
-```
-
-* `<<<<<<< HEAD`: Kode versi cabang aktif saat ini.
-* `=======`: Garis pemisah antara kedua versi.
-* `>>>>>>> feature-title`: Kode versi cabang yang sedang digabungkan masuk.
-
-**Langkah Menyelesaikan Konflik:**
-1. Buka berkas yang berkonflik di VS Code.
-2. Diskusikan dan pilih kode yang benar (atau gunakan tombol *Accept Current Change*, *Accept Incoming Change*, atau *Accept Both Changes* di editor).
-3. Hapus seluruh tanda `<<<<<<<`, `=======`, dan `>>>>>>>`.
-4. Simpan berkas tersebut.
-5. Jalankan perintah `git add <berkas>` lalu `git commit -m "fix: resolve merge conflict on index.html"`.
+| Urutan | Perintah | Fungsi | Analogi Sehari-hari |
+| :---: | :--- | :--- | :--- |
+| **1** | `git status` | Melihat file mana yang baru diubah atau belum disimpan | Mengecek barang apa saja di meja kerja |
+| **2** | `git add .` | Mendaftarkan semua perubahan ke Staging Area | Memasukkan semua barang ke dalam kardus |
+| **3** | `git commit -m "pesan"` | Menyimpan permanen perubahan dengan catatan | Melakban kardus dan menuliskan label nama paket |
+| **4** | `git push origin main` | Mengirim commit lokal ke repositori GitHub | Mengirimkan paket ke ekspedisi/cloud |
 
 ---
 
-### 7. Terhubung dengan Repositori Jarak Jauh (GitHub Remote)
+## 🛠️ 4. Praktik Langsung: Dari Komputer ke GitHub
 
+Ikuti 3 misi praktikum berikut untuk langsung mempraktikkan materi hari ini:
+
+### 🎯 Misi 1: Kenalkan Dirimu ke Git (Cukup 1x di Laptop)
+Sebelum membuat commit, Git harus tahu siapa penulis kodenya:
 ```bash
-# Menautkan repositori lokal ke GitHub
-git remote add origin https://github.com/username/nama-repo.git
+git config --global user.name "Nama Lengkap Anda"
+git config --global user.email "email-anda@gmail.com"
+```
+> 🔍 **Cek apakah sudah berhasil:** Ketik `git config --list`.
 
-# Mengubah nama default branch menjadi main
+---
+
+### 🎯 Misi 2: Upload Proyek Portofolio ke GitHub Pribadi
+
+Jika kamu punya folder portofolio di laptop dan ingin mengunggahnya ke akun GitHub pribadimu:
+
+#### Langkah A: Buat Repositori Kosong di Website GitHub
+1. Buka [github.com](https://github.com) dan login.
+2. Klik ikon **`+`** di pojok kanan atas $\rightarrow$ pilih **New repository**.
+3. Beri nama repositori: `portofolio-web`.
+4. Pilih **Public**.
+5. ⚠️ **Penting:** **JANGAN centang** *"Add a README file"* (biarkan kosong).
+6. Klik **Create repository**, lalu salin link URL-nya (contoh: `https://github.com/username/portofolio-web.git`).
+
+#### Langkah B: Hubungkan dan Kirim dari VS Code
+Buka terminal VS Code di folder proyekmu (`Ctrl + ~`), lalu ketik:
+```bash
+# 1. Jadikan folder ini repositori Git (jika belum)
+git init
+
+# 2. Hubungkan ke alamat repositori GitHub milikmu
+git remote add origin https://github.com/username-kamu/portofolio-web.git
+
+# 3. Kumpulkan semua file dan simpan
+git add .
+git commit -m "feat: inisialisasi proyek portofolio web"
+
+# 4. Pastikan branch utama bernama main, lalu kirim!
 git branch -M main
-
-# Mengunggah commit lokal ke GitHub pertama kali
 git push -u origin main
+```
+> *Jika muncul pop-up login, pilih **"Sign in with your browser"** dan izinkan akses.*
 
-# Mengambil dan menggabungkan perubahan terbaru dari GitHub
-git pull origin main
+---
 
-# Mengunduh salinan repositori publik yang sudah ada di internet ke komputer
-git clone https://github.com/username/nama-repo.git
+### 🎯 Misi 3: Siklus Menyimpan Kodingan Selanjutnya
+Setelah repo terhubung, setiap kali kamu selesai mengedit file (misalnya mengganti warna di CSS atau menambah fitur di Tailwind):
+```bash
+git status               # 1. Intip file apa yang berubah
+git add .                # 2. Siapkan semua file
+git commit -m "feat: ubah warna tema jadi hijau botol"  # 3. Simpan catatan
+git push origin main     # 4. Kirim ke GitHub
 ```
 
 ---
 
-### 8. Alur Kerja Kolaborasi (Fork, Clone, Pull Request)
+## 🌿 5. Bekerja Aman dengan Cabang (Branching)
+
+Bayangkan **Branch** seperti membuat lembar fotokopi dari kode utama (`main`):
+Kamu bebas mencorat-coret fitur baru di lembar fotokopi tersebut. Jika hasilnya bagus, gabungkan ke dokumen asli. Jika gagal/rusak, buang saja fotokopinya tanpa merusak dokumen utama!
 
 ```
-[Repositori Asli / Organisasi]
-            |
-            | (Fork via web GitHub)
-            v
-[Fork Repositori di Akun Anda]
-            |
-            | (git clone ke lokal)
-            v
-[Komputer Lokal Pengembang]
-            |
-            | (git checkout -b feature/fitur-baru)
-            | (git add . && git commit -m "...")
-            | (git push origin feature/fitur-baru)
-            v
-[Fork Repositori di Akun Anda]
-            |
-            | (Buat Pull Request / PR)
-            v
-[Review Kode & Merge ke Repositori Asli]
+                    (fitur-tailwind)  [Commit A] ---> [Commit B]
+                                           /                       \ (git merge)
+                                          /                         v
+(main / kode stabil) [Commit 1] ----> [Commit 2] ----------------> [Commit 3]
 ```
 
-1. **Fork**: Membuat duplikat repositori orang lain ke akun GitHub pribadi.
-2. **Clone**: Mengunduh repositori hasil fork ke komputer lokal.
-3. **Branch**: Selalu buat cabang baru untuk setiap tugas/fitur spesifik.
-4. **Push**: Unggah cabang lokal Anda ke GitHub.
-5. **Pull Request (PR)**: Mengajukan permintaan agar perubahan Anda ditinjau (*code review*) dan digabungkan ke cabang utama repositori induk.
+### Perintah Penting Branch:
+```bash
+# Membuat cabang eksperimen baru dan langsung pindah ke sana
+git checkout -b coba-tailwind
+
+# Melihat kamu sedang berada di cabang mana
+git branch
+
+# Kembali ke cabang utama
+git checkout main
+
+# Menggabungkan hasil dari cabang eksperimen ke cabang utama
+git merge coba-tailwind
+
+# Menghapus cabang eksperimen yang sudah selesai digabung
+git branch -d coba-tailwind
+```
 
 ---
 
-### 9. Alur Kerja Harian Developer (Daily 4-Step Workflow)
+## 📖 6. Kamus Cepat Perintah Git Pemula
 
-Dalam lingkungan kerja profesional, terapkan 4 langkah standar berikut setiap hari:
+Simpan tabel ini sebagai contekan cepat saat belajar:
 
-1. **Langkah 1: Sinkronisasi Kode Terbaru**
-   ```bash
-   git checkout main
-   git pull origin main
-   ```
-2. **Langkah 2: Buat Cabang Baru untuk Fitur/Bugfix**
-   ```bash
-   git checkout -b feature/halaman-kontak
-   ```
-3. **Langkah 3: Bekerja, Lakukan Staging, Commit, dan Push**
-   ```bash
-   git add .
-   git commit -m "feat(kontak): tambahkan form kontak dan validasi input"
-   git push -u origin feature/halaman-kontak
-   ```
-4. **Langkah 4: Buka GitHub & Buat Pull Request**
-   * Buat PR, jelaskan perubahan yang Anda buat, tunggu tinjauan rekan tim, lalu lakukan *Merge*.
+| Kebutuhan | Perintah Git | Penjelasan Singkat |
+| :--- | :--- | :--- |
+| **Mulai Proyek** | `git init` | Mengaktifkan Git di folder saat ini |
+| **Download Proyek** | `git clone <url>` | Mendownload seluruh proyek dari GitHub ke komputer |
+| **Cek Kondisi** | `git status` | Melihat status file (merah = belum distage, hijau = siap commit) |
+| **Pilih File** | `git add <nama-file>` | Memilih 1 file spesifik untuk disimpan |
+| **Pilih Semua** | `git add .` | Memilih seluruh file yang berubah sekaligus |
+| **Simpan Riwayat** | `git commit -m "pesan"` | Menyimpan permanen dengan catatan perubahan |
+| **Lihat Riwayat** | `git log --oneline` | Melihat daftar riwayat commit ringkas 1 baris |
+| **Kirim ke Cloud** | `git push origin main` | Mengirim commit dari komputer ke GitHub |
+| **Ambil Update** | `git pull origin main` | Menarik kodingan terbaru dari GitHub ke komputer |
+| **Ambil 1 Folder** | `git checkout origin/main -- "path"` | Mengambil satu folder tertentu saja dari GitHub |
+| **Batalkan Edit** | `git restore <nama-file>` | Membatalkan ketikan sebelum di-add (kembali ke posisi awal) |
 
 ---
 
-### 10. Praktik Terbaik (Best Practices)
-* **Atomic Commits**: Buat commit secara berkala untuk unit perubahan kecil yang logis. Hindari menumpuk 50 perubahan file dalam 1 commit raksasa.
-* **Pesan Commit yang Jelas**: Gunakan pola deskriptif seperti konvensi *Conventional Commits*:
-  * `feat:` untuk fitur baru (contoh: `feat: tambahkan navigasi responsif`)
-  * `fix:` untuk perbaikan bug (contoh: `fix: perbaiki tata letak kartu pada layar mobile`)
-  * `docs:` untuk dokumentasi (contoh: `docs: perbarui panduan instalasi`)
-* **Gunakan Berkas `.gitignore`**: Selalu abaikan file rahasia (`.env`), file dependensi berukuran raksasa (`node_modules/`, `vendor/`), dan file sistem operasi (`.DS_Store`, `Thumbs.db`).
-* **Jangan Commit Langsung ke `main`**: Di proyek tim, selalu gunakan branch dan Pull Request agar kode tetap teruji.
+## ❓ 7. Pertolongan Pertama pada Masalah Git Pemula
+
+### 1. Masalah: "fatal: remote origin already exists"
+* **Penyebab:** Folder kamu sudah punya alamat remote GitHub lama.
+* **Solusi:** Ubah alamatnya ke repo barumu menggunakan perintah:
+  ```bash
+  git remote set-url origin https://github.com/username-kamu/nama-repo.git
+  ```
+
+### 2. Masalah: "error: failed to push some refs"
+* **Penyebab:** Ada file baru di GitHub yang belum ada di komputermu (misal kamu mencentang README saat buat repo di web).
+* **Solusi:** Tarik dulu file dari GitHub baru lakukan push:
+  ```bash
+  git pull origin main --rebase
+  git push origin main
+  ```
+
+### 3. Masalah: "Salah ketik pesan commit"
+* **Solusi:** Selama belum di-push, perbaiki pesan commit terakhir dengan:
+  ```bash
+  git commit --amend -m "pesan baru yang benar"
+  ```
 
 ---
 
-## Alat dan Persiapan
-1. **Git CLI**: Terpasang di komputer (dapat dicek dengan `git --version`).
-2. **Akun GitHub**: Memiliki akun aktif di [GitHub.com](https://github.com).
-3. **Konfigurasi Identitas Git Global** (Wajib dilakukan satu kali di awal):
-   ```bash
-   git config --global user.name "Nama Lengkap Anda"
-   git config --global user.email "email-anda@domain.com"
-   ```
-4. **Visual Studio Code** dengan terminal terintegrasi (`Ctrl + ~`).
-
----
-
-## Langkah-Langkah
-
-### Skenario 1: Memeriksa Status & Melakukan Commit Lokal
-1. Buka terminal di folder proyek ini.
-2. Ketik perintah:
-   ```bash
-   git status
-   ```
-3. Perhatikan daftar file yang berstatus *Changes not staged for commit* atau *Untracked files*.
-4. Masukkan perubahan ke Staging Area:
-   ```bash
-   git add .
-   ```
-5. Simpan commit lokal Anda:
-   ```bash
-   git commit -m "feat(modul): pelajari dasar git dan pelacakan versi"
-   ```
-
-### Skenario 2: Simulasi Percabangan (Branching)
-1. Buat cabang baru bernama `fitur-eksperimen`:
-   ```bash
-   git checkout -b fitur-eksperimen
-   ```
-2. Buat atau ubah sebuah berkas catatan kecil, misalnya `catatan.txt`.
-3. Lakukan commit pada cabang tersebut:
-   ```bash
-   git add catatan.txt
-   git commit -m "docs: tambah catatan uji coba branch"
-   ```
-4. Kembali ke cabang `main`:
-   ```bash
-   git checkout main
-   ```
-5. Gabungkan (*merge*) perubahan dari cabang eksperimen:
-   ```bash
-   git merge fitur-eksperimen
-   ```
-
-### Skenario 3: Simulasi Merge Conflict & Penyelesaiannya
-1. Ubah baris ke-1 di `catatan.txt` pada branch `main` menjadi:
-   `Catatan Versi Main: Penting dipelajari.`
-   Lakukan commit di `main`.
-2. Pindah ke branch `fitur-eksperimen`:
-   `git checkout fitur-eksperimen`
-3. Ubah baris ke-1 di `catatan.txt` menjadi kalimat yang berbeda:
-   `Catatan Versi Eksperimen: Menjelajahi fitur baru.`
-   Lakukan commit di `fitur-eksperimen`.
-4. Kembali ke `main` lalu coba lakukan `git merge fitur-eksperimen`.
-5. Git akan menampilkan pesan `CONFLICT (content): Merge conflict in catatan.txt`.
-6. Buka `catatan.txt` di VS Code, telaah penanda konflik `<<<<<<<`, pilih kalimat yang dikehendaki, hapus penanda konflik, lalu selesaikan dengan `git add catatan.txt` dan `git commit -m "fix: resolve conflict on catatan.txt"`.
-
----
-
-## Tugas Modul
-Kerjakan tugas praktikum Git & GitHub berikut:
-1. Pastikan komputer Anda telah terkonfigurasi dengan nama dan email GitHub Anda (`git config --list`).
-2. Buat sebuah branch baru di repositori lokal Anda dengan format nama `tugas-git/nama-panggilan-anda`.
-3. Buat sebuah file baru bernama `laporan-git.md` di dalam direktori `Modul/Modul-Git-GitHub/` yang berisi:
-   - Identitas diri (Nama, NIM/NRP, Program Studi).
-   - Penjelasan singkat mengenai perbedaan *Working Directory*, *Staging Area*, dan *Local Repository* menurut pemahaman Anda.
-   - Tangkapan layar (*screenshot*) atau salinan teks dari perintah `git log --oneline` yang menunjukkan riwayat commit yang pernah Anda buat.
-4. Lakukan `git add` dan `git commit` dengan pesan commit yang mengikuti aturan *Conventional Commits* (misal: `docs: buat laporan praktikum git`).
-5. Gabungkan (*merge*) branch tersebut kembali ke branch `main`.
-
----
-
-## Referensi
-* Materi Presentasi Workshop Multimedia: *Menguasai Git & GitHub (1).pdf*
-* [Dokumentasi Resmi Git (Pro Git Book)](https://git-scm.com/book/id/v2)
-* [GitHub Skills - Latihan Interaktif Resmi](https://skills.github.com/)
-* [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+## 📝 Tips Menulis Pesan Commit yang Rapi (Conventional Commits)
+Gunakan awalan berikut agar riwayat proyekmu terlihat profesional:
+* `feat:` untuk fitur/tampilan baru (contoh: `feat: buat halaman hero responsif`)
+* `fix:` untuk perbaikan bug/error (contoh: `fix: perbaiki posisi foto profil`)
+* `style:` untuk perubahan visual/CSS tanpa ubah logika (contoh: `style: ganti warna badge skill`)
+* `docs:` untuk update berkas dokumentasi/README (contoh: `docs: perbarui panduan praktikum`)
