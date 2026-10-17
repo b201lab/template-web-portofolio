@@ -36,7 +36,7 @@ Sebelum menghafal class, pahami rumus singkat Tailwind berikut:
 
 ---
 
-## 📚 3. Kamus Lengkap Class Tailwind (Portofolio Edition)
+## 3. Kamus Lengkap Class Tailwind (Portofolio Edition)
 
 Berikut adalah kamus lengkap seluruh class Tailwind yang kita gunakan dalam pembuatan Web Portofolio:
 
@@ -154,29 +154,16 @@ Berikut adalah kamus lengkap seluruh class Tailwind yang kita gunakan dalam pemb
 
 ---
 
-## 🛠️ 4. Template Latihan Praktikum
+## 4. Template Latihan Praktikum
 
 Untuk sesi praktik koding langsung, repositori ini telah dilengkapi dengan template portofolio yang siap digunakan:
 
-📁 **Jalur Template:** [`Modul/Modul-3-Tailwind-Dasar/TailWind-Template/`](TailWind-Template/)
-* 📄 **`TailWind-Template/index.html`**: Kerangka HTML bersih dengan atribut `class=""` kosong yang siap kamu ketik bersama instruktur.
-* 🖼️ **`TailWind-Template/images/ning2.jpg`**: Aset foto profil yang digunakan di Hero section.
+**Jalur Template:** [`Modul/Modul-3-Tailwind-Dasar/TailWind-Template/`](TailWind-Template/)
+* **`TailWind-Template/index.html`**: Kerangka HTML bersih dengan atribut `class=""` kosong yang siap kamu ketik bersama instruktur.
+* **`TailWind-Template/images/ning2.jpg`**: Aset foto profil yang digunakan di Hero section.
 
 ---
 
-## 🚀 5. Langkah-Langkah Praktik di Kelas
-
-1. Buka file **`TailWind-Template/index.html`** di VS Code.
-2. Klik kanan pada editor $\rightarrow$ pilih **Open with Live Server**.
-3. Ketik class Tailwind secara bertahap mengikuti urutan berikut:
-   * **Tahap 1:** Atur latar halaman pada tag `<body>`: `bg-[#f6f7f3] text-[#24312b] font-sans`.
-   * **Tahap 2:** Rapikan navbar dengan Flexbox: `max-w-[960px] mx-auto flex justify-between items-center`.
-   * **Tahap 3:** Buat foto profil melingkar di Hero: `w-44 h-44 rounded-full object-cover`.
-   * **Tahap 4:** Buat layout 2 kolom pada About & Skills: `grid grid-cols-1 md:grid-cols-[220px_1fr]`.
-   * **Tahap 5:** Hias badge keterampilan: `px-3.5 py-1.5 bg-white border border-[#dfe5df] rounded`.
-
----
-
-## 📝 Referensi
+## 5. Referensi
 * [Dokumentasi Resmi Tailwind CSS](https://tailwindcss.com/docs)
 * [Tailwind CSS Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)
